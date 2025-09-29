@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-import DevelopmentElement from "./DevelopmentElement";
-
-
 
 const languages = [
     { 
@@ -43,16 +40,31 @@ const languages = [
     },
 ];
 
+export default function LanguageList() {
+
  const [activeLanguageItem, setActiveLanguageItem] = useState(null);
 
-<div className="button-container">
-    {languages.map((language) => (
-      <DevelopmentElement
-        key={language.id}
-        titolo={language.titolo}
-        descrizione={language.descrizione}
-        isOpen={activeLanguageItem === index}
-        onToggle={() => activeLanguageItem(setActiveLanguageItem === language.id ? null : language.id)}
-      />
-    ))}
-</div>
+ return (
+
+  <div>
+
+      <div className="general-container">
+          {languages.map((language) => (
+              <button onClick={()=> setActiveLanguageItem(language)}>{language.title}</button>
+          ))}
+      </div>
+       {activeLanguageItem && (
+        <div className="general-container">
+          <div className="language-info">
+            <h2>{activeLanguageItem.title}</h2>
+            <p>{activeLanguageItem.description}</p>
+          </div>
+        </div>
+      )}
+
+  </div>
+
+  
+)};
+
+
