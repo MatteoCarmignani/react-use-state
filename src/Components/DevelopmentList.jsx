@@ -43,25 +43,14 @@ const languages = [
     },
 ];
 
-export default function DevelopmentList() {
-
-    // variabile di stato della lista
-    const [activeDevelopmentItem, setActiveDevelopmentItem] = useState(null);
-
-    return (
-        <div>
-
-            {languages.map((language) => (
-                <DevelopmentElement
-                    titolo={language.title}
-                    descrizione={language.description}
-                    isOpen={activeDevelopmentItem === language.id}
-                    onToggle={() => setActiveDevelopmentItem(activeDevelopmentItem === language.id ? null : language.id)}
-                    key={language.id}
-                />
-            ))}
-
-        </div>
-
-    );
-}
+<div className="button-container">
+   {data.map((item, index) => (
+      <DevelopmentElement
+        key={index}
+        titolo={item.titolo}
+        descrizione={item.descrizione}
+        isOpen={openIndex === index}
+        onToggle={() => handleToggle(index)}
+      />
+    ))}
+</div>

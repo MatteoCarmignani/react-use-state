@@ -1,19 +1,15 @@
-export default function DevelopmentElement(props) {
-
-
-    const { titolo, descrizione, isOpen, onToggle } = props;
-
-
+export default function DevelopmentElement({ titolo, isOpen, onToggle, descrizione }) {
     return (
-        <div>
-            <button onClick={onToggle}>
-                {titolo}
-            </button>
+        <section>
+            <div>
+                <button onClick={onToggle}>{titolo}</button>
+            </div>
             
-            {isOpen && <div>
+            {isOpen && (
+                <div className="description-container">
                     <h3>{titolo}</h3>
                     <p>{descrizione}</p>
-                </div>}
-        </div>
-    );
-}
+                </div>
+            )}
+        </section>
+)}
