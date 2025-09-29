@@ -1,9 +1,9 @@
 import { useState } from "react";
-// import componente figlio
+
 import DevelopmentElement from "./DevelopmentElement";
 
 
-// DATI
+
 const languages = [
     { 
         id: 1, 
@@ -43,14 +43,16 @@ const languages = [
     },
 ];
 
+ const [activeLanguageItem, setActiveLanguageItem] = useState(null);
+
 <div className="button-container">
-   {data.map((item, index) => (
+    {languages.map((language) => (
       <DevelopmentElement
-        key={index}
-        titolo={item.titolo}
-        descrizione={item.descrizione}
-        isOpen={openIndex === index}
-        onToggle={() => handleToggle(index)}
+        key={language.id}
+        titolo={language.titolo}
+        descrizione={language.descrizione}
+        isOpen={activeLanguageItem === index}
+        onToggle={() => activeLanguageItem(setActiveLanguageItem === language.id ? null : language.id)}
       />
     ))}
 </div>
